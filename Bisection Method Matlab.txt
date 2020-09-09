@@ -1,0 +1,16 @@
+%Function to implement the bisection method
+%function is the definion
+
+function x=bisectionBrandon(f,a,b,tol)
+sfb = sign(f(b));
+width = b-a;
+disp(' a b sfx')
+while width > tol
+    width = width/2;
+    x = a + width;
+    sfx = sign(f(x));
+    disp(sprintf('%0.8f %0.8f %2.0f', [a b sfx]))
+    if sfx == 0, a = x; b = x; return
+    elseif sfx == sfb, b = x;
+    else, a = x; end
+end
